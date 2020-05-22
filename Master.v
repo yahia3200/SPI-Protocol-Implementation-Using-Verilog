@@ -1,11 +1,11 @@
 module Master(CPHA_IN, CPOL_IN, MISO, SS_IN, START, READ_MEMORY, DATA,
-	      MOSI, SS1_OUT, SS2_OUT, SS3_OUT, CLK_OUT, OUT_STATE);
+	      MOSI, SS1_OUT, SS2_OUT, SS3_OUT, CLK_OUT, OUT_SHIFT_STATE, OUT_MAIN);
 
 // INPUTS
 input CPHA_IN;
 input CPOL_IN;
 input MISO;
-input SS_IN;
+input [0:2]SS_IN;
 input START;
 input READ_MEMORY;
 input [7:0] DATA;
@@ -16,7 +16,8 @@ output reg SS1_OUT;
 output reg SS2_OUT;
 output reg SS3_OUT;
 output CLK_OUT;
-output [7:0] OUT_STATE;
+output [7:0] OUT_SHIFT_STATE;
+output [7:0] OUT_MAIN;
 
 
 // PARAMETRS
@@ -31,8 +32,8 @@ reg IS_VALID;
 assign CLK_INITIAL = CPOL_IN;
 assign NEXT_STATE = {MISO, STATE[7:1]};
 assign CLK_OUT = CLK;
-assign OUT_STATE = STATE;
-
+assign OUT_SHIFT_STATE = STATE;
+assign OUT_MAIN = MAIN_MEMORY;
 
 // Load Data to The Main Memory
 always @(posedge READ_MEMORY) begin 
@@ -49,10 +50,10 @@ SAMPLED_COUNT = 0;
 IS_VALID = 0;
 #10;
 
-if (SS_IN == 1)
+if (SS_IN == 'b011)
 {SS1_OUT, SS2_OUT, SS3_OUT} = 3'b011;
 
-else if (SS_IN == 2)
+else if (SS_IN == 'b101)
 {SS1_OUT, SS2_OUT, SS3_OUT} = 3'b101;
 
 else
@@ -115,7 +116,7 @@ module Master_Testbench();
 reg CPHA;
 reg CPOL;
 reg MISO;
-integer SS;
+reg [0:2]SS;
 reg START;
 reg READ;
 reg [0:7]DATA;
@@ -127,23 +128,24 @@ wire SS2;
 wire SS3;
 wire CLK;
 wire [7:0]STATE;
+wire [7:0]MAIN;
 
 integer f;
 
 
-Master M1(CPHA, CPOL, MISO, SS, START, READ, DATA, MOSI, SS1, SS2,  SS3, CLK, STATE);
+Master M1(CPHA, CPOL, MISO, SS, START, READ, DATA, MOSI, SS1, SS2,  SS3, CLK, STATE, MAIN);
 
 initial begin
 
-f = $fopen("MASTER.txt");
-$fdisplay(f, "TEST MODE 1");
-$fdisplay(f, "CLK   STATE   MISO  MOSI");
-$fmonitor(f,"%b    %b  %b    %b", CLK, STATE, MISO, MOSI);
+f = $fopen("Master_Test.txt");
+$fdisplay(f, "TEST MODE 1 WITH SLAVE 1");
+$fdisplay(f, "CLK   STATE   MISO  MOSI SS1 SS2 SS3");
+$fmonitor(f,"%b    %b  %b    %b    %b   %b   %b", CLK, STATE, MISO, MOSI, SS1, SS2, SS3);
 
 CPHA = 0;
 CPOL = 0;
 MISO = 1;
-SS = 1;
+SS = 'b011;
 START = 0;
 READ = 1;
 DATA = 8'b00000000;
@@ -155,9 +157,10 @@ START = 1;
 
 // TEST MODE 2
 $fdisplay(f, "##########################");
-$fdisplay(f, "TEST MODE 2");
-$fdisplay(f, "CLK   STATE   MISO  MOSI");
+$fdisplay(f, "TEST MODE 2 WITH SLAVE 2");
+$fdisplay(f, "CLK   STATE   MISO  MOSI SS1 SS2 SS3");
 CPHA = 1;
+SS = 'b101;
 READ = 1;
 START = 1;
 #10 START = 0; READ = 0;
@@ -165,10 +168,11 @@ START = 1;
 
 // TEST MODE 3
 $fdisplay(f, "##########################");
-$fdisplay(f, "TEST MODE 3");
-$fdisplay(f, "CLK   STATE   MISO  MOSI");
+$fdisplay(f, "TEST MODE 3 WITH SLAVE 3");
+$fdisplay(f, "CLK   STATE   MISO  MOSI SS1 SS2 SS3");
 CPOL = 1;
 CPHA = 0;
+SS = 'b110;
 READ = 1;
 START = 1;
 #10 START = 0; READ = 0;
@@ -176,8 +180,8 @@ START = 1;
 
 // TEST MODE 4
 $fdisplay(f, "##########################");
-$fdisplay(f, "TEST MODE 4");
-$fdisplay(f, "CLK   STATE   MISO  MOSI");
+$fdisplay(f, "TEST MODE 4 WITH SLAVE 3");
+$fdisplay(f, "CLK   STATE   MISO  MOSI SS1 SS2 SS3");
 CPOL = 1;
 CPHA = 1;
 READ = 1;
