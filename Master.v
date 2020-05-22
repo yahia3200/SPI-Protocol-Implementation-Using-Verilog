@@ -12,9 +12,9 @@ input [7:0] DATA;
 
 // OUTPUTS
 output reg MOSI;
-output reg SS1_OUT;
-output reg SS2_OUT;
-output reg SS3_OUT;
+output reg SS1_OUT = 1;
+output reg SS2_OUT = 1;
+output reg SS3_OUT = 1;
 output CLK_OUT;
 output [7:0] OUT_SHIFT_STATE;
 output [7:0] OUT_MAIN;
@@ -69,41 +69,39 @@ CLK=~CLK;
 end
 end
 
-always @(posedge CLK ) begin
-if ((SS1_OUT && SS2_OUT && SS3_OUT) == 0) begin
-	if(CPHA_IN ~^ CPOL_IN == 1 && IS_VALID) begin 
-	STATE = NEXT_STATE;
-	SAMPLED_COUNT = SAMPLED_COUNT + 1;
+always @(posedge CLK) begin
+if((SS1_OUT && SS2_OUT && SS3_OUT) == 0) begin
+	if(CPHA_IN ~^ CPOL_IN == 1 && IS_VALID) begin
+	    STATE = NEXT_STATE;
+	    SAMPLED_COUNT = SAMPLED_COUNT + 1;
 
-	if (SAMPLED_COUNT == 8)
-	{SS1_OUT, SS2_OUT, SS3_OUT} = 3'b111;
-
+	    if (SAMPLED_COUNT == 8)
+	    {SS1_OUT, SS2_OUT, SS3_OUT} = 3'b111;
 	end
-	else begin
-	MOSI = STATE[0];
-	IS_VALID = 1;
+
+	else if(CPHA_IN ~^ CPOL_IN == 0) begin
+	    MOSI = STATE[0]; $display("NO");
+	    IS_VALID = 1;
 	end
 end
 end
-
 
 always @(negedge CLK ) begin
 if ((SS1_OUT && SS2_OUT && SS3_OUT) == 0) begin
-	if(CPHA_IN ^ CPOL_IN == 1 && IS_VALID) begin 
-	STATE = NEXT_STATE;
-	SAMPLED_COUNT = SAMPLED_COUNT + 1;
+	if(CPHA_IN ^ CPOL_IN == 1 && IS_VALID) begin
+	    STATE = NEXT_STATE;
+	    SAMPLED_COUNT = SAMPLED_COUNT + 1;
 
-	if (SAMPLED_COUNT == 8)
-	{SS1_OUT, SS2_OUT, SS3_OUT} = 3'b111;
-
+	    if (SAMPLED_COUNT == 8)
+	    {SS1_OUT, SS2_OUT, SS3_OUT} = 3'b111;
 	end
-	else begin
-	MOSI = STATE[0];
-	IS_VALID = 1;
+
+	else if(CPHA_IN ^ CPOL_IN == 0) begin
+	    MOSI = STATE[0];
+	    IS_VALID = 1;            
 	end
 end
 end
-
 
 endmodule
 
@@ -161,9 +159,8 @@ $fdisplay(f, "TEST MODE 2 WITH SLAVE 2");
 $fdisplay(f, "CLK   STATE   MISO  MOSI SS1 SS2 SS3");
 CPHA = 1;
 SS = 'b101;
-READ = 1;
 START = 1;
-#10 START = 0; READ = 0;
+#10 START = 0;
 #180;
 
 // TEST MODE 3
@@ -173,9 +170,8 @@ $fdisplay(f, "CLK   STATE   MISO  MOSI SS1 SS2 SS3");
 CPOL = 1;
 CPHA = 0;
 SS = 'b110;
-READ = 1;
 START = 1;
-#10 START = 0; READ = 0;
+#10 START = 0;
 #180;
 
 // TEST MODE 4
@@ -184,9 +180,8 @@ $fdisplay(f, "TEST MODE 4 WITH SLAVE 3");
 $fdisplay(f, "CLK   STATE   MISO  MOSI SS1 SS2 SS3");
 CPOL = 1;
 CPHA = 1;
-READ = 1;
 START = 1;
-#10 START = 0; READ = 0;
+#10 START = 0;
 #180;
 
 $fclose(f);

@@ -1,7 +1,7 @@
 TEST MODE 1 WITH SLAVE 1
 CLK   STATE   MISO  MOSI SS1 SS2 SS3
-0    00000000  1    x    x   x   x
-1    00000000  1    0    0   1   1
+0    00000000  1    x    1   1   1
+1    00000000  1    x    0   1   1
 0    00000000  1    0    0   1   1
 1    10000000  1    0    0   1   1
 0    10000000  1    0    0   1   1
@@ -42,7 +42,7 @@ CLK   STATE   MISO  MOSI SS1 SS2 SS3
 TEST MODE 3 WITH SLAVE 3
 CLK   STATE   MISO  MOSI SS1 SS2 SS3
 1    00000000  1    x    1   1   1
-0    00000000  1    0    1   1   0
+0    00000000  1    x    1   1   0
 1    00000000  1    0    1   1   0
 0    10000000  1    0    1   1   0
 1    10000000  1    0    1   1   0
