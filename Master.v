@@ -50,6 +50,7 @@ CLK = CPOL_IN;
 STATE = MAIN_MEMORY;
 SAMPLED_COUNT = 0;
 IS_VALID = 0;
+#10 START_CLK = 1;
 
 // Choose the Correct Slave
 if (SS_IN == 'b011)
@@ -61,7 +62,7 @@ else if (SS_IN == 'b101)
 else
 {SS1_OUT, SS2_OUT, SS3_OUT} = 3'b110;
 
-#10 START_CLK = 1;
+
 
 end
 
