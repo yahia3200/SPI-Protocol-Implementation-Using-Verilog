@@ -17,6 +17,7 @@ CLK   STATE   MISO  MOSI SS1 SS2 SS3
 0    11111110  1    0    0   1   1
 1    11111110  1    0    0   1   1
 0    11111111  1    1    1   1   1
+Passed This Test Successfully
 ##########################
 TEST MODE 1 WITH SLAVE 2
 CLK   STATE   MISO  MOSI SS1 SS2 SS3
@@ -38,6 +39,7 @@ CLK   STATE   MISO  MOSI SS1 SS2 SS3
 1    11111110  1    0    1   0   1
 0    11111110  1    0    1   0   1
 1    11111111  1    1    1   1   1
+Passed This Test Successfully
 ##########################
 TEST MODE 2 WITH SLAVE 3
 CLK   STATE   MISO  MOSI SS1 SS2 SS3
@@ -58,6 +60,7 @@ CLK   STATE   MISO  MOSI SS1 SS2 SS3
 1    11111110  1    0    1   1   0
 0    11111110  1    0    1   1   0
 1    11111111  1    1    1   1   1
+Passed This Test Successfully
 ##########################
 TEST MODE 3 WITH SLAVE 3
 CLK   STATE   MISO  MOSI SS1 SS2 SS3
@@ -79,3 +82,4 @@ CLK   STATE   MISO  MOSI SS1 SS2 SS3
 0    11111110  1    0    1   1   0
 1    11111110  1    0    1   1   0
 0    11111111  1    1    1   1   1
+Passed This Test Successfully

@@ -12,9 +12,9 @@ input [7:0] DATA;
 
 // OUTPUTS
 output MOSI;
-output reg SS1_OUT;
-output reg SS2_OUT;
-output reg SS3_OUT;
+output reg SS1_OUT = 1;
+output reg SS2_OUT = 1;
+output reg SS3_OUT = 1;
 output CLK_OUT;
 output [0:7] OUT_SHIFT_STATE;
 output [0:7] OUT_MAIN;
@@ -105,7 +105,7 @@ if (START_CLK == 1) begin   // To Avoid Edges When Initializing Clock Value
 	if(CPHA_IN == 1) begin
 	    // Sampling Data
 	    DATA_IN = MISO;
-	    IS_VALID = 1;   // To Avoid Edges When Initializing Clock Value
+	    IS_VALID = 1;   // To Avoid Shifting Before Sampling
 	end
 
 	else if(CPHA_IN == 0 && IS_VALID) begin
@@ -169,7 +169,12 @@ DATA = 8'b00000000;
 // TEST MODE 0
 START = 1;
 #10 START = 0; READ = 0;
-#200;
+#220;
+
+if(STATE == 8'b11111111)
+$fdisplay(f, "Passed This Test Successfully");
+else 
+$fdisplay(f, "Wrong Output Expected Output: 11111111 Output: %d", STATE);
 
 // TEST MODE 1
 $fdisplay(f, "##########################");
@@ -179,7 +184,12 @@ CPHA = 1;
 SS = 'b101;
 START = 1;
 #10 START = 0;
-#200;
+#220;
+
+if(STATE == 8'b11111111)
+$fdisplay(f, "Passed This Test Successfully");
+else 
+$fdisplay(f, "Wrong Output Expected Output: 11111111 Output: %d", STATE);
 
 // TEST MODE 2
 $fdisplay(f, "##########################");
@@ -190,7 +200,12 @@ CPHA = 1;
 SS = 'b110;
 START = 1;
 #10 START = 0;
-#200;
+#220;
+
+if(STATE == 8'b11111111)
+$fdisplay(f, "Passed This Test Successfully");
+else 
+$fdisplay(f, "Wrong Output Expected Output: 11111111 Output: %d", STATE);
 
 // TEST MODE 3
 $fdisplay(f, "##########################");
@@ -200,7 +215,12 @@ CPOL = 1;
 CPHA = 0;
 START = 1;
 #10 START = 0;
-#200;
+#220;
+
+if(STATE == 8'b11111111)
+$fdisplay(f, "Passed This Test Successfully");
+else 
+$fdisplay(f, "Wrong Output Expected Output: 11111111 Output: %d", STATE);
 
 $fclose(f);
 
