@@ -1,0 +1,93 @@
+Commnication with Slave 1 in Mode 0
+Mater sends 11111111 and slave1 sends 00000000 
+clk=0 Mater_reg= 11111111  Slave1_reg=xxxxxxxx Slave2_reg=xxxxxxxx Slave3_reg=xxxxxxxx
+clk=1 Mater_reg= 11111111  Slave1_reg=00000000 Slave2_reg=xxxxxxxx Slave3_reg=xxxxxxxx
+clk=0 Mater_reg= 01111111  Slave1_reg=10000000 Slave2_reg=xxxxxxxx Slave3_reg=xxxxxxxx
+clk=1 Mater_reg= 01111111  Slave1_reg=10000000 Slave2_reg=xxxxxxxx Slave3_reg=xxxxxxxx
+clk=0 Mater_reg= 00111111  Slave1_reg=11000000 Slave2_reg=xxxxxxxx Slave3_reg=xxxxxxxx
+clk=1 Mater_reg= 00111111  Slave1_reg=11000000 Slave2_reg=xxxxxxxx Slave3_reg=xxxxxxxx
+clk=0 Mater_reg= 00011111  Slave1_reg=11100000 Slave2_reg=xxxxxxxx Slave3_reg=xxxxxxxx
+clk=1 Mater_reg= 00011111  Slave1_reg=11100000 Slave2_reg=xxxxxxxx Slave3_reg=xxxxxxxx
+clk=0 Mater_reg= 00001111  Slave1_reg=11110000 Slave2_reg=xxxxxxxx Slave3_reg=xxxxxxxx
+clk=1 Mater_reg= 00001111  Slave1_reg=11110000 Slave2_reg=xxxxxxxx Slave3_reg=xxxxxxxx
+clk=0 Mater_reg= 00000111  Slave1_reg=11111000 Slave2_reg=xxxxxxxx Slave3_reg=xxxxxxxx
+clk=1 Mater_reg= 00000111  Slave1_reg=11111000 Slave2_reg=xxxxxxxx Slave3_reg=xxxxxxxx
+clk=0 Mater_reg= 00000011  Slave1_reg=11111100 Slave2_reg=xxxxxxxx Slave3_reg=xxxxxxxx
+clk=1 Mater_reg= 00000011  Slave1_reg=11111100 Slave2_reg=xxxxxxxx Slave3_reg=xxxxxxxx
+clk=0 Mater_reg= 00000001  Slave1_reg=11111110 Slave2_reg=xxxxxxxx Slave3_reg=xxxxxxxx
+clk=1 Mater_reg= 00000001  Slave1_reg=11111110 Slave2_reg=xxxxxxxx Slave3_reg=xxxxxxxx
+clk=0 Mater_reg= 00000000  Slave1_reg=11111111 Slave2_reg=xxxxxxxx Slave3_reg=xxxxxxxx
+clk=1 Mater_reg= 00000000  Slave1_reg=11111111 Slave2_reg=xxxxxxxx Slave3_reg=xxxxxxxx
+ Successful Communication
+ End Of Mode 0
+//////////////////////////////////////////////////////////////////////
+Commnication with Slave 2 in Mode 1
+Mater sends 01010101 and slave2 sends 10101010 
+clk=0 Mater_reg= 01010101  Slave1_reg=11111111 Slave2_reg=xxxxxxxx Slave3_reg=xxxxxxxx
+clk=1 Mater_reg= 01010101  Slave1_reg=11111111 Slave2_reg=10101010 Slave3_reg=xxxxxxxx
+clk=0 Mater_reg= 01010101  Slave1_reg=11111111 Slave2_reg=10101010 Slave3_reg=xxxxxxxx
+clk=1 Mater_reg= 00101010  Slave1_reg=11111111 Slave2_reg=11010101 Slave3_reg=xxxxxxxx
+clk=0 Mater_reg= 00101010  Slave1_reg=11111111 Slave2_reg=11010101 Slave3_reg=xxxxxxxx
+clk=1 Mater_reg= 10010101  Slave1_reg=11111111 Slave2_reg=01101010 Slave3_reg=xxxxxxxx
+clk=0 Mater_reg= 10010101  Slave1_reg=11111111 Slave2_reg=01101010 Slave3_reg=xxxxxxxx
+clk=1 Mater_reg= 01001010  Slave1_reg=11111111 Slave2_reg=10110101 Slave3_reg=xxxxxxxx
+clk=0 Mater_reg= 01001010  Slave1_reg=11111111 Slave2_reg=10110101 Slave3_reg=xxxxxxxx
+clk=1 Mater_reg= 10100101  Slave1_reg=11111111 Slave2_reg=01011010 Slave3_reg=xxxxxxxx
+clk=0 Mater_reg= 10100101  Slave1_reg=11111111 Slave2_reg=01011010 Slave3_reg=xxxxxxxx
+clk=1 Mater_reg= 01010010  Slave1_reg=11111111 Slave2_reg=10101101 Slave3_reg=xxxxxxxx
+clk=0 Mater_reg= 01010010  Slave1_reg=11111111 Slave2_reg=10101101 Slave3_reg=xxxxxxxx
+clk=1 Mater_reg= 10101001  Slave1_reg=11111111 Slave2_reg=01010110 Slave3_reg=xxxxxxxx
+clk=0 Mater_reg= 10101001  Slave1_reg=11111111 Slave2_reg=01010110 Slave3_reg=xxxxxxxx
+clk=1 Mater_reg= 01010100  Slave1_reg=11111111 Slave2_reg=10101011 Slave3_reg=xxxxxxxx
+clk=0 Mater_reg= 01010100  Slave1_reg=11111111 Slave2_reg=10101011 Slave3_reg=xxxxxxxx
+clk=1 Mater_reg= 10101010  Slave1_reg=11111111 Slave2_reg=01010101 Slave3_reg=xxxxxxxx
+clk=0 Mater_reg= 10101010  Slave1_reg=11111111 Slave2_reg=01010101 Slave3_reg=xxxxxxxx
+ Successful Communication
+ End Of Mode 1
+//////////////////////////////////////////////////////////////////////
+Commnication with Slave 3 in Mode 2
+Mater sends 01010101 and slave3 sends 11110111 
+clk=1 Mater_reg= 01010101  Slave1_reg=11111111 Slave2_reg=01010101 Slave3_reg=xxxxxxxx
+clk=0 Mater_reg= 01010101  Slave1_reg=11111111 Slave2_reg=01010101 Slave3_reg=11110111
+clk=1 Mater_reg= 10101010  Slave1_reg=11111111 Slave2_reg=01010101 Slave3_reg=11111011
+clk=0 Mater_reg= 10101010  Slave1_reg=11111111 Slave2_reg=01010101 Slave3_reg=11111011
+clk=1 Mater_reg= 11010101  Slave1_reg=11111111 Slave2_reg=01010101 Slave3_reg=01111101
+clk=0 Mater_reg= 11010101  Slave1_reg=11111111 Slave2_reg=01010101 Slave3_reg=01111101
+clk=1 Mater_reg= 11101010  Slave1_reg=11111111 Slave2_reg=01010101 Slave3_reg=10111110
+clk=0 Mater_reg= 11101010  Slave1_reg=11111111 Slave2_reg=01010101 Slave3_reg=10111110
+clk=1 Mater_reg= 01110101  Slave1_reg=11111111 Slave2_reg=01010101 Slave3_reg=01011111
+clk=0 Mater_reg= 01110101  Slave1_reg=11111111 Slave2_reg=01010101 Slave3_reg=01011111
+clk=1 Mater_reg= 10111010  Slave1_reg=11111111 Slave2_reg=01010101 Slave3_reg=10101111
+clk=0 Mater_reg= 10111010  Slave1_reg=11111111 Slave2_reg=01010101 Slave3_reg=10101111
+clk=1 Mater_reg= 11011101  Slave1_reg=11111111 Slave2_reg=01010101 Slave3_reg=01010111
+clk=0 Mater_reg= 11011101  Slave1_reg=11111111 Slave2_reg=01010101 Slave3_reg=01010111
+clk=1 Mater_reg= 11101110  Slave1_reg=11111111 Slave2_reg=01010101 Slave3_reg=10101011
+clk=0 Mater_reg= 11101110  Slave1_reg=11111111 Slave2_reg=01010101 Slave3_reg=10101011
+clk=1 Mater_reg= 11110111  Slave1_reg=11111111 Slave2_reg=01010101 Slave3_reg=01010101
+clk=0 Mater_reg= 11110111  Slave1_reg=11111111 Slave2_reg=01010101 Slave3_reg=01010101
+ Successful Communication
+ End Of Mode 2
+//////////////////////////////////////////////////////////////////////
+Commnication with Slave 2 in Mode 3
+Mater sends 10010011 and slave2 sends 01001110 
+clk=1 Mater_reg= 10010011  Slave1_reg=11111111 Slave2_reg=01010101 Slave3_reg=01010101
+clk=0 Mater_reg= 10010011  Slave1_reg=11111111 Slave2_reg=01001110 Slave3_reg=01010101
+clk=1 Mater_reg= 10010011  Slave1_reg=11111111 Slave2_reg=01001110 Slave3_reg=01010101
+clk=0 Mater_reg= 01001001  Slave1_reg=11111111 Slave2_reg=10100111 Slave3_reg=01010101
+clk=1 Mater_reg= 01001001  Slave1_reg=11111111 Slave2_reg=10100111 Slave3_reg=01010101
+clk=0 Mater_reg= 10100100  Slave1_reg=11111111 Slave2_reg=11010011 Slave3_reg=01010101
+clk=1 Mater_reg= 10100100  Slave1_reg=11111111 Slave2_reg=11010011 Slave3_reg=01010101
+clk=0 Mater_reg= 11010010  Slave1_reg=11111111 Slave2_reg=01101001 Slave3_reg=01010101
+clk=1 Mater_reg= 11010010  Slave1_reg=11111111 Slave2_reg=01101001 Slave3_reg=01010101
+clk=0 Mater_reg= 11101001  Slave1_reg=11111111 Slave2_reg=00110100 Slave3_reg=01010101
+clk=1 Mater_reg= 11101001  Slave1_reg=11111111 Slave2_reg=00110100 Slave3_reg=01010101
+clk=0 Mater_reg= 01110100  Slave1_reg=11111111 Slave2_reg=10011010 Slave3_reg=01010101
+clk=1 Mater_reg= 01110100  Slave1_reg=11111111 Slave2_reg=10011010 Slave3_reg=01010101
+clk=0 Mater_reg= 00111010  Slave1_reg=11111111 Slave2_reg=01001101 Slave3_reg=01010101
+clk=1 Mater_reg= 00111010  Slave1_reg=11111111 Slave2_reg=01001101 Slave3_reg=01010101
+clk=0 Mater_reg= 10011101  Slave1_reg=11111111 Slave2_reg=00100110 Slave3_reg=01010101
+clk=1 Mater_reg= 10011101  Slave1_reg=11111111 Slave2_reg=00100110 Slave3_reg=01010101
+clk=0 Mater_reg= 01001110  Slave1_reg=11111111 Slave2_reg=10010011 Slave3_reg=01010101
+clk=1 Mater_reg= 01001110  Slave1_reg=11111111 Slave2_reg=10010011 Slave3_reg=01010101
+ Successful Communication
+ End Of Mode 3

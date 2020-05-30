@@ -1,0 +1,17 @@
+{D:/hala hamdy/university/first year/second semester/logic design/project/Logic2.0/Slave.v} {1 {vlog -work work -stats=none {D:/hala hamdy/university/first year/second semester/logic design/project/Logic2.0/Slave.v}
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module Slave
+-- Compiling module Slave_tb
+
+Top level modules:
+	Slave_tb
+
+} {} {}} {D:/hala hamdy/university/first year/second semester/logic design/project/Logic2.0/Master.v} {1 {vlog -work work -stats=none {D:/hala hamdy/university/first year/second semester/logic design/project/Logic2.0/Master.v}
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module Master
+-- Compiling module Master_Testbench
+
+Top level modules:
+	Master_Testbench
+
+} {} {}}

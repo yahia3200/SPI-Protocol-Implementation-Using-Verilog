@@ -115,7 +115,7 @@ if (START_CLK == 1) begin   // To Avoid Edges When Initializing Clock Value
 	    SAMPLED_COUNT = SAMPLED_COUNT + 1;
 	    // End COM. if All New 8bits are Shifted 
 	    if (SAMPLED_COUNT == 8) begin
-            #10 //so the slave could handle the last bit
+            #10
 	    {SS1_OUT, SS2_OUT, SS3_OUT} = 3'b111;
 	    START_CLK = 0;    
 	    end

@@ -10,7 +10,7 @@ input READ_MEMORY;//READING FROM MEMORY OR WRITING
 input [7:0]DATA; //INPUT DATA FOR SLAVE
 
 // OUTPUTS
-output  MISO;	//MASTER INPUT SLAVE OUTPUT
+output reg MISO;	//MASTER INPUT SLAVE OUTPUT
 output [0:7]OUT_SHIFT_STATE; 
 output [0:7]OUT_MAIN;
 
@@ -22,7 +22,7 @@ reg IS_VALID = 0;
 
 assign OUT_SHIFT_STATE = STATE;
 assign OUT_MAIN = MAIN_MEMORY;
-assign  MISO =STATE[7];
+
 // Load Data to The Main Memory
 always @(posedge READ_MEMORY) begin 
 MAIN_MEMORY = DATA;
@@ -41,6 +41,7 @@ if(SS == 0) begin
 	end
 	else if(CPHA == 1 && IS_VALID)begin
 	    STATE[0:7] = {DATA_IN, STATE[0:6]}; 
+            MISO =STATE[7];
 	end
 end
 end
@@ -53,6 +54,7 @@ if(SS == 0) begin
 	end
 	else if(CPHA == 0 && IS_VALID) begin
 	    STATE[0:7] = {DATA_IN, STATE[0:6]};
+            MISO =STATE[7];
 	end
 end
 end
