@@ -149,6 +149,9 @@ wire [7:0]STATE;
 wire [7:0]MAIN;
 
 integer f;
+integer Iterator;
+integer wrong = 0;
+reg [7:0]TEST_CASE;
 
 
 Master M1(CPHA, CPOL, MISO, SS, START, READ, DATA, MOSI, SS1, SS2,  SS3, CLK, STATE, MAIN);
@@ -156,77 +159,128 @@ Master M1(CPHA, CPOL, MISO, SS, START, READ, DATA, MOSI, SS1, SS2,  SS3, CLK, ST
 initial begin
 
 f = $fopen("Master_Test.txt");
-$fdisplay(f, "TEST MODE 0 WITH SLAVE 1");
+$fdisplay(f, "SEND 01010101 To MASTER IN MODE 0 FROM SLAVE 1");
+$display("SEND 01010101 To MASTER IN MODE 0 FROM SLAVE 1");
 $fdisplay(f, "CLK   STATE   MISO  MOSI SS1 SS2 SS3");
 $fmonitor(f,"%b    %b  %b    %b    %b   %b   %b", CLK, STATE, MISO, MOSI, SS1, SS2, SS3);
 
 CPHA = 0;
 CPOL = 0;
-MISO = 1;
+MISO = 0;
 SS = 'b011;
 START = 0;
 READ = 1;
 DATA = 8'b00000000;
+TEST_CASE = 8'b01010101;
 
 // TEST MODE 0
 START = 1;
-#10 START = 0; READ = 0;
-#220;
+MISO = TEST_CASE[0];
 
-if(STATE == 8'b11111111)
+for (Iterator = 1; Iterator < 8; Iterator = Iterator + 1) begin 
+#20 MISO = TEST_CASE[Iterator];
+end
+START = 0; READ = 0;
+#50;
+
+if(STATE == 8'b01010101) begin
+$display("Passed This Test Successfully");
 $fdisplay(f, "Passed This Test Successfully");
-else 
-$fdisplay(f, "Wrong Output Expected Output: 11111111 Output: %d", STATE);
+end
+else begin
+wrong = wrong + 1;
+$display("Wrong Output Expected Output: 01010101 Output: %b", STATE);
+$fdisplay(f, "Wrong Output Expected Output: 01010101 Output: %b", STATE);
+end
 
 // TEST MODE 1
 $fdisplay(f, "##########################");
-$fdisplay(f, "TEST MODE 1 WITH SLAVE 2");
+$fdisplay(f, "SEND 00110011 To MASTER IN MODE 1 FROM SLAVE 2");
+$display("SEND 00110011 To MASTER IN MODE 1 FROM SLAVE 2");
 $fdisplay(f, "CLK   STATE   MISO  MOSI SS1 SS2 SS3");
 CPHA = 1;
 SS = 'b101;
+TEST_CASE = 8'b00110011;
 START = 1;
-#10 START = 0;
-#220;
+MISO = TEST_CASE[0];
 
-if(STATE == 8'b11111111)
+#10;
+for (Iterator = 1; Iterator < 8; Iterator = Iterator + 1) begin 
+#20 MISO = TEST_CASE[Iterator];
+end
+START = 0;
+#50;
+
+if(STATE == 8'b00110011) begin
+$display("Passed This Test Successfully");
 $fdisplay(f, "Passed This Test Successfully");
-else 
-$fdisplay(f, "Wrong Output Expected Output: 11111111 Output: %d", STATE);
+end
+else begin
+wrong = wrong + 1;
+$display("Wrong Output Expected Output: 00110011 Output: %b", STATE);
+$fdisplay(f, "Wrong Output Expected Output: 00110011 Output: %b", STATE);
+end
 
 // TEST MODE 2
 $fdisplay(f, "##########################");
-$fdisplay(f, "TEST MODE 2 WITH SLAVE 3");
+$fdisplay(f, "SEND 01101101 To MASTER IN MODE 2 FROM SLAVE 3");
+$display("SEND 01101101 To MASTER IN MODE 2 FROM SLAVE 3");
 $fdisplay(f, "CLK   STATE   MISO  MOSI SS1 SS2 SS3");
 CPOL = 1;
 CPHA = 1;
 SS = 'b110;
+TEST_CASE = 8'b01101101;
 START = 1;
-#10 START = 0;
-#220;
+MISO = TEST_CASE[0];
 
-if(STATE == 8'b11111111)
+for (Iterator = 1; Iterator < 8; Iterator = Iterator + 1) begin 
+#20 MISO = TEST_CASE[Iterator];
+end
+START = 0; READ = 0;
+#50;
+
+if(STATE == 8'b01101101) begin
+$display("Passed This Test Successfully");
 $fdisplay(f, "Passed This Test Successfully");
-else 
-$fdisplay(f, "Wrong Output Expected Output: 11111111 Output: %d", STATE);
+end
+else begin
+wrong = wrong + 1;
+$display("Wrong Output Expected Output: 01101101 Output: %b", STATE);
+$fdisplay(f, "Wrong Output Expected Output: 01101101 Output: %b", STATE);
+end
 
 // TEST MODE 3
 $fdisplay(f, "##########################");
-$fdisplay(f, "TEST MODE 3 WITH SLAVE 3");
+$fdisplay(f, "SEND 10101010 To MASTER IN MODE 3 FROM SLAVE 3");
+$display("SEND 10101010 To MASTER IN MODE 3 FROM SLAVE 3");
 $fdisplay(f, "CLK   STATE   MISO  MOSI SS1 SS2 SS3");
 CPOL = 1;
 CPHA = 0;
+TEST_CASE = 8'b10101010;
 START = 1;
-#10 START = 0;
-#220;
+MISO = TEST_CASE[0];
 
-if(STATE == 8'b11111111)
+#10;
+for (Iterator = 1; Iterator < 8; Iterator = Iterator + 1) begin 
+#20 MISO = TEST_CASE[Iterator];
+end
+START = 0;
+#50;
+
+if(STATE == 8'b10101010) begin
+$display("Passed This Test Successfully");
 $fdisplay(f, "Passed This Test Successfully");
-else 
-$fdisplay(f, "Wrong Output Expected Output: 11111111 Output: %d", STATE);
+end
+else begin
+wrong = wrong + 1;
+$display("Wrong Output Expected Output: 10101010 Output: %b", STATE);
+$fdisplay(f, "Wrong Output Expected Output: 10101010 Output: %b", STATE);
+end
+
+$display("Simulation Ended. Number of wrong cases: %d", wrong);
+$display("for more details check Master_Test.txt file");
 
 $fclose(f);
-
-
 $stop;
 
 
