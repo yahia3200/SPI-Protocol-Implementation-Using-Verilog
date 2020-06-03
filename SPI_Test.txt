@@ -1,5 +1,7 @@
-Commnication with Slave 1 in Mode 0
-Mater sends 11111111 and slave1 sends 00000000 
+
+ Commnication with Slave 1 in Mode 0 
+
+Mater sends 11111111 and Slave1 sends 00000000 
 clk=0 Mater_reg= 11111111  Slave1_reg=xxxxxxxx Slave2_reg=xxxxxxxx Slave3_reg=xxxxxxxx
 clk=1 Mater_reg= 11111111  Slave1_reg=00000000 Slave2_reg=xxxxxxxx Slave3_reg=xxxxxxxx
 clk=0 Mater_reg= 01111111  Slave1_reg=10000000 Slave2_reg=xxxxxxxx Slave3_reg=xxxxxxxx
@@ -18,11 +20,14 @@ clk=0 Mater_reg= 00000001  Slave1_reg=11111110 Slave2_reg=xxxxxxxx Slave3_reg=xx
 clk=1 Mater_reg= 00000001  Slave1_reg=11111110 Slave2_reg=xxxxxxxx Slave3_reg=xxxxxxxx
 clk=0 Mater_reg= 00000000  Slave1_reg=11111111 Slave2_reg=xxxxxxxx Slave3_reg=xxxxxxxx
 clk=1 Mater_reg= 00000000  Slave1_reg=11111111 Slave2_reg=xxxxxxxx Slave3_reg=xxxxxxxx
- Successful Communication
+
  End Of Mode 0
-//////////////////////////////////////////////////////////////////////
-Commnication with Slave 2 in Mode 1
-Mater sends 01010101 and slave2 sends 10101010 
+ Communication Succeeded 
+=============================================================================
+
+ Commnication with Slave 2 in Mode 1 
+
+Mater sends 01010101 and Slave2 sends 10101010 
 clk=0 Mater_reg= 01010101  Slave1_reg=11111111 Slave2_reg=xxxxxxxx Slave3_reg=xxxxxxxx
 clk=1 Mater_reg= 01010101  Slave1_reg=11111111 Slave2_reg=10101010 Slave3_reg=xxxxxxxx
 clk=0 Mater_reg= 01010101  Slave1_reg=11111111 Slave2_reg=10101010 Slave3_reg=xxxxxxxx
@@ -42,11 +47,14 @@ clk=1 Mater_reg= 01010100  Slave1_reg=11111111 Slave2_reg=10101011 Slave3_reg=xx
 clk=0 Mater_reg= 01010100  Slave1_reg=11111111 Slave2_reg=10101011 Slave3_reg=xxxxxxxx
 clk=1 Mater_reg= 10101010  Slave1_reg=11111111 Slave2_reg=01010101 Slave3_reg=xxxxxxxx
 clk=0 Mater_reg= 10101010  Slave1_reg=11111111 Slave2_reg=01010101 Slave3_reg=xxxxxxxx
- Successful Communication
+
  End Of Mode 1
-//////////////////////////////////////////////////////////////////////
-Commnication with Slave 3 in Mode 2
-Mater sends 01010101 and slave3 sends 11110111 
+ Communication Succeeded 
+=============================================================================
+
+ Commnication with Slave 3 in Mode 2 
+
+Mater sends 01010101 and Slave3 sends 11110111 
 clk=1 Mater_reg= 01010101  Slave1_reg=11111111 Slave2_reg=01010101 Slave3_reg=xxxxxxxx
 clk=0 Mater_reg= 01010101  Slave1_reg=11111111 Slave2_reg=01010101 Slave3_reg=11110111
 clk=1 Mater_reg= 10101010  Slave1_reg=11111111 Slave2_reg=01010101 Slave3_reg=11111011
@@ -65,11 +73,13 @@ clk=1 Mater_reg= 11101110  Slave1_reg=11111111 Slave2_reg=01010101 Slave3_reg=10
 clk=0 Mater_reg= 11101110  Slave1_reg=11111111 Slave2_reg=01010101 Slave3_reg=10101011
 clk=1 Mater_reg= 11110111  Slave1_reg=11111111 Slave2_reg=01010101 Slave3_reg=01010101
 clk=0 Mater_reg= 11110111  Slave1_reg=11111111 Slave2_reg=01010101 Slave3_reg=01010101
- Successful Communication
+
  End Of Mode 2
-//////////////////////////////////////////////////////////////////////
-Commnication with Slave 2 in Mode 3
-Mater sends 10010011 and slave2 sends 01001110 
+ Communication Succeeded 
+=============================================================================
+
+ Commnication with Slave 2 in Mode 3
+Mater sends 10010011 and Slave2 sends 01001110 
 clk=1 Mater_reg= 10010011  Slave1_reg=11111111 Slave2_reg=01010101 Slave3_reg=01010101
 clk=0 Mater_reg= 10010011  Slave1_reg=11111111 Slave2_reg=01001110 Slave3_reg=01010101
 clk=1 Mater_reg= 10010011  Slave1_reg=11111111 Slave2_reg=01001110 Slave3_reg=01010101
@@ -89,5 +99,9 @@ clk=0 Mater_reg= 10011101  Slave1_reg=11111111 Slave2_reg=00100110 Slave3_reg=01
 clk=1 Mater_reg= 10011101  Slave1_reg=11111111 Slave2_reg=00100110 Slave3_reg=01010101
 clk=0 Mater_reg= 01001110  Slave1_reg=11111111 Slave2_reg=10010011 Slave3_reg=01010101
 clk=1 Mater_reg= 01001110  Slave1_reg=11111111 Slave2_reg=10010011 Slave3_reg=01010101
- Successful Communication
+
  End Of Mode 3
+ Communication Succeeded 
+=============================================================================
+
+ Simulation Ended. Number of wrong cases:           0

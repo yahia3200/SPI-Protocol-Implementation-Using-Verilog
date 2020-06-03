@@ -1,5 +1,5 @@
 module Master(CPHA_IN, CPOL_IN, MISO, SS_IN, START, READ_MEMORY, DATA,
-	      MOSI, SS1_OUT, SS2_OUT, SS3_OUT, CLK_OUT, OUT_SHIFT_STATE, OUT_MAIN);
+	      MOSI, SS1_OUT, SS2_OUT, SS3_OUT, CLK_OUT, OUT_SHIFT_STATE, OUT_MAIN, isValid_Selection);
 
 // INPUTS
 input CPHA_IN;
@@ -15,6 +15,7 @@ output MOSI;
 output reg SS1_OUT = 1;
 output reg SS2_OUT = 1;
 output reg SS3_OUT = 1;
+output reg isValid_Selection; //A flag to detect any invalid value for the SS line
 output CLK_OUT;
 output [0:7] OUT_SHIFT_STATE;
 output [0:7] OUT_MAIN;
@@ -50,6 +51,7 @@ CLK = CPOL_IN;
 STATE = MAIN_MEMORY;
 SAMPLED_COUNT = 0;
 IS_VALID = 0;
+isValid_Selection = 1;
 #10 START_CLK = 1;
 
 // Choose the Correct Slave
@@ -59,10 +61,13 @@ if (SS_IN == 'b011)
 else if (SS_IN == 'b101)
 {SS1_OUT, SS2_OUT, SS3_OUT} = 3'b101;
 
-else
+else if (SS_IN == 'b110)
 {SS1_OUT, SS2_OUT, SS3_OUT} = 3'b110;
 
-
+else
+begin
+isValid_Selection = 0;
+end
 
 end
 
